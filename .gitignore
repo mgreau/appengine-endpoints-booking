@@ -1,1 +1,26 @@
-target/
+*.DS_Store
+*.project
+*.classpath
+*/target/
+*/.settings/
+
+# GAE files
+# endpoint-libs/
+# war/WEB-INF/classes
+# war/WEB-INF/appengine-generated
+# war/WEB-INF/lib/a*.jar
+# war/WEB-INF/lib/d*.jar
+# war/WEB-INF/lib/g*.jar
+# war/WEB-INF/lib/jsr*.jar
+# war/WEB-INF/lib/jta*.jar
+# war/WEB-INF/lib/jdo*.jar
+#
+#
+# Android generated files
+bin/
+gen/
+
+
+# Package Files #
+*.war
+*.ear
