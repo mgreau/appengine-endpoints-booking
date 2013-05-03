@@ -1,0 +1,513 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"oZqOFf-aKzMvpID-BwBAFJLe7Pk/R8PzXhmfa1WaC0PQGgBqj7H0WGU\"",
+ "discoveryVersion": "v1",
+ "id": "bookingendpoint:v1",
+ "name": "bookingendpoint",
+ "version": "v1",
+ "description": "This is an API",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://myapp.appspot.com/_ah/api/bookingendpoint/v1/",
+ "basePath": "/_ah/api/bookingendpoint/v1/",
+ "rootUrl": "https://myapp.appspot.com/_ah/api/",
+ "servicePath": "bookingendpoint/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "schemas": {
+  "Booking": {
+   "id": "Booking",
+   "type": "object",
+   "properties": {
+    "beds": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "checkinDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "checkoutDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "description": {
+     "type": "string"
+    },
+    "hotelId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "nights": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "smoking": {
+     "type": "boolean"
+    },
+    "total": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "user": {
+     "$ref": "User"
+    }
+   }
+  },
+  "BookingCollection": {
+   "id": "BookingCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Booking"
+     }
+    }
+   }
+  },
+  "CollectionResponse_Hotel": {
+   "id": "CollectionResponse_Hotel",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Hotel"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "Dashboard": {
+   "id": "Dashboard",
+   "type": "object",
+   "properties": {
+    "cityList": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "countryList": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "nbHotels": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "Hotel": {
+   "id": "Hotel",
+   "type": "object",
+   "properties": {
+    "address": {
+     "type": "string"
+    },
+    "city": {
+     "type": "string"
+    },
+    "country": {
+     "type": "string"
+    },
+    "hotelName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "image": {
+     "$ref": "Text"
+    },
+    "numberOfStars": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "price": {
+     "type": "string",
+     "format": "int64"
+    },
+    "state": {
+     "type": "string"
+    },
+    "zip": {
+     "type": "string"
+    }
+   }
+  },
+  "HotelCollection": {
+   "id": "HotelCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Hotel"
+     }
+    }
+   }
+  },
+  "Text": {
+   "id": "Text",
+   "type": "object",
+   "properties": {
+    "value": {
+     "type": "string"
+    }
+   }
+  },
+  "User": {
+   "id": "User",
+   "type": "object",
+   "properties": {
+    "authDomain": {
+     "type": "string"
+    },
+    "email": {
+     "type": "string"
+    },
+    "federatedIdentity": {
+     "type": "string"
+    },
+    "nickname": {
+     "type": "string"
+    },
+    "userId": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "methods": {
+  "dashboard": {
+   "id": "bookingendpoint.dashboard",
+   "path": "dashboard",
+   "httpMethod": "GET",
+   "response": {
+    "$ref": "Dashboard"
+   }
+  }
+ },
+ "resources": {
+  "hotels": {
+   "methods": {
+    "delete": {
+     "id": "bookingendpoint.hotels.delete",
+     "path": "hotel/{id}",
+     "httpMethod": "DELETE",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "Hotel"
+     }
+    },
+    "get": {
+     "id": "bookingendpoint.hotels.get",
+     "path": "hotel/{id}",
+     "httpMethod": "GET",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "Hotel"
+     }
+    },
+    "insert": {
+     "id": "bookingendpoint.hotels.insert",
+     "path": "hotel",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "Hotel"
+     },
+     "response": {
+      "$ref": "Hotel"
+     }
+    },
+    "list": {
+     "id": "bookingendpoint.hotels.list",
+     "path": "hotel",
+     "httpMethod": "GET",
+     "parameters": {
+      "cursor": {
+       "type": "string",
+       "location": "query"
+      },
+      "limit": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      }
+     },
+     "response": {
+      "$ref": "CollectionResponse_Hotel"
+     }
+    },
+    "patch": {
+     "id": "bookingendpoint.hotels.patch",
+     "path": "hotel",
+     "httpMethod": "PATCH",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "query"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ]
+    },
+    "search": {
+     "id": "bookingendpoint.hotels.search",
+     "path": "searchHotel/{term}",
+     "httpMethod": "GET",
+     "parameters": {
+      "term": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "term"
+     ],
+     "response": {
+      "$ref": "HotelCollection"
+     }
+    },
+    "update": {
+     "id": "bookingendpoint.hotels.update",
+     "path": "hotel",
+     "httpMethod": "PUT",
+     "request": {
+      "$ref": "Hotel"
+     },
+     "response": {
+      "$ref": "Hotel"
+     }
+    }
+   },
+   "resources": {
+    "bookings": {
+     "methods": {
+      "delete": {
+       "id": "bookingendpoint.hotels.bookings.delete",
+       "path": "hotels/{hotelId}/bookings/{bookingId}",
+       "httpMethod": "DELETE",
+       "parameters": {
+        "bookingId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        },
+        "hotelId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "hotelId",
+        "bookingId"
+       ],
+       "response": {
+        "$ref": "Booking"
+       }
+      },
+      "get": {
+       "id": "bookingendpoint.hotels.bookings.get",
+       "path": "hotels/bookings/{id}",
+       "httpMethod": "GET",
+       "parameters": {
+        "id": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "id"
+       ],
+       "response": {
+        "$ref": "Booking"
+       }
+      },
+      "insert": {
+       "id": "bookingendpoint.hotels.bookings.insert",
+       "path": "hotels/{hotelId}/bookings",
+       "httpMethod": "POST",
+       "parameters": {
+        "hotelId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "hotelId"
+       ],
+       "request": {
+        "$ref": "Booking"
+       },
+       "response": {
+        "$ref": "Booking"
+       }
+      },
+      "list": {
+       "id": "bookingendpoint.hotels.bookings.list",
+       "path": "hotels/{hotelId}/bookings",
+       "httpMethod": "GET",
+       "parameters": {
+        "hotelId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "hotelId"
+       ],
+       "response": {
+        "$ref": "BookingCollection"
+       }
+      },
+      "listByUser": {
+       "id": "bookingendpoint.hotels.bookings.listByUser",
+       "path": "hotels/bookings/user",
+       "httpMethod": "GET",
+       "response": {
+        "$ref": "BookingCollection"
+       }
+      },
+      "patch": {
+       "id": "bookingendpoint.hotels.bookings.patch",
+       "path": "hotels/{hotelId}/bookings",
+       "httpMethod": "PATCH",
+       "parameters": {
+        "hotelId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        },
+        "id": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "query"
+        }
+       },
+       "parameterOrder": [
+        "hotelId",
+        "id"
+       ]
+      },
+      "update": {
+       "id": "bookingendpoint.hotels.bookings.update",
+       "path": "hotels/{hotelId}/bookings",
+       "httpMethod": "PUT",
+       "parameters": {
+        "hotelId": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "path"
+        }
+       },
+       "parameterOrder": [
+        "hotelId"
+       ],
+       "request": {
+        "$ref": "Booking"
+       },
+       "response": {
+        "$ref": "Booking"
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

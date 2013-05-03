@@ -1,0 +1,237 @@
+/**************************************/
+/*BASIC
+/**************************************/
+html, body {
+	background: #FFF;
+}
+body {
+	border-top:5px solid #3399CC;
+}
+/**************************************/
+/*STRUCT
+/**************************************/
+#top {
+	background-color: #FFF;
+	height:60px;
+	padding:10px 0 10px 0;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+#front {
+	padding-top:1px;
+}
+#front > .container {
+	background: #E0E0E0;
+	background: rgba(0, 0, 0, .03);
+	padding:6px 20px 0 20px;
+	border-bottom:1px solid #EFEFEF;
+}
+#main {
+	padding-top:0px;
+}
+#main > .container {
+	background: #FFF;
+	padding:6px 20px;
+	border-top:1px solid #FFF;
+	padding-top:20px;
+	padding-bottom:80px;
+}
+#footer {
+	background-color: #666;
+	padding-top:15px;
+}
+/**************************************/
+/*NAVIGATION
+/**************************************/
+#top .navbar .nav {
+	margin-top:14px;
+}
+#top .navbar .nav > li > a {
+	text-shadow:none;
+	color: #666;
+	padding: 5px 10px 6px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin-right:5px;
+}
+#top .navbar .nav > li > a.dropdown-toggle:hover, #top .navbar .nav > li > a:hover {
+	color: #FFF;
+	background:#E62F16;
+}
+#top .navbar .nav > li.open > a {
+	color: #FFF;
+	background:#E62F16;
+}
+#top .dropdown-menu a i, .nav-list [class^="icon-"]  {
+	margin-right:10px;
+}
+
+#top ul.dropdown-menu li a:hover {
+	background:#E62F16;
+}
+
+/**************************************/
+/*SENSE
+/**************************************/
+.makesense {
+	padding:25px 0 25px 0;
+}
+.makesense h3 {
+	color:#666;
+	font-size:38px;
+	line-height:45px;
+	font-weight: normal;
+	font-family:  Helvetica Neue, Arial, sans-serif;
+}
+.makesense h4 {
+	color:#666;
+	font-size:22px;
+	line-height:22px;
+	font-weight: normal;
+	font-family: Helvetica Neue, Arial, sans-serif;
+}
+/**************************************/
+/*BOX
+/**************************************/
+.border-solid {
+	border: 1px solid #CCC;
+}
+.border-dashed {
+	border: 1px dashed #CCC;
+}
+.box-padding {
+	padding: 8px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+.box-padding h3 {
+	margin-bottom:15px;
+}
+/**************************************/
+/*STEP
+/**************************************/
+.step-container {
+	position:relative;
+}
+.step {
+	position:absolute;
+	top:-13px;
+	left:-13px;
+	padding: 4px 9px 4px;
+	font-size: 14px;
+	font-weight: bold;
+	white-space: nowrap;
+	color: white;
+	background-color: #39C;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+}
+/**************************************/
+/*FEATURE
+/**************************************/
+.feature {
+}
+.feature h5 {
+	font-size:14px;
+	margin-top:8px;
+}
+/**************************************/
+/*FORM
+/**************************************/
+form {
+	margin:0;
+}
+.form-actions {
+	margin-bottom:0;
+}
+.box-padding .form-actions {
+	margin-left:-8px;
+	margin-right:-8px;
+	margin-bottom:-8px;
+}
+.controls-in {
+	height:40px;
+}
+.controls-in > input, .controls > input  {
+	height:30px;
+	width:100%;
+}
+.form-actions-in {
+	padding-top:15px;
+	text-align:right;
+}
+.form-horizontal .control-label {
+	font-weight:bold;
+}
+/**************************************/
+/*FOOTER
+/**************************************/
+#footer a {
+	margin-right:10px;
+	margin-left:10px;
+	color:#FFF;
+}
+/**************************************/
+/*OVERRIDE BOOTSTRAP
+/**************************************/
+.dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
+	color: #ffffff;
+	text-decoration: none;
+	background-color: #3399CC;
+}
+
+/**************************************/
+/*CUSTOM
+/**************************************/
+.center {
+	text-align:center;
+}
+.space {
+	display:block;
+	height:25px;
+}
+.hr {
+	border-bottom:1px solid #CCC;
+	height:1px;
+}
+
+/**************************************/
+/*CUSTOM DEVFEST
+/**************************************/
+body {
+	border-top: 5px solid #E62F16;
+}
+
+.step {
+	background-color: #E62F16;
+}
+
+.feature {
+	margin-top: 10px;
+	height: 260px;
+}
+
+.recherche {
+	background-color: #F8F8F8;
+	border-color: black;
+	color: black;
+}
+
+#front {
+	background-color: #e5e5e5;
+	border-bottom: 1px solid #E62F16;
+}
+
+.makesense {
+	height: 70px;
+	padding: 0;
+	margin-left: 90px;
+}
+
+.pagination {
+	margin: 0 0 10px 0;
+}

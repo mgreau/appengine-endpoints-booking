@@ -1,0 +1,15 @@
+<a href="#hotels/<%- id %>"> <img src="" class="img-polaroid" width="90px"></a>
+<div class="caption">
+	<h5><%= hotelName %></h5>
+	<span class="badge badge-important"><%= country %></span>
+	<p>
+		<strong><%= price %> Euros</strong> <br /><% _.each(stars, function(i)
+		{ %> <i class="icon-star"></i> <% }); %>
+	</p>
+	<address><%= city %></address>
+	<p>
+		<a href="#hotels/book/<%- id %>" class="btn btn-inverse">Réservez</a>
+	</p>
+	<div class="hr"></div>
+</div>
+

@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">Cloud Booking (Endpoints)</string>
+    <string name="loading">Chargement en cours</string>
+    <string name="load_more">Plus</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main_booking">Cloud Booking (Endpoints)</string>
+
+</resources>

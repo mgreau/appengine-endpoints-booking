@@ -1,0 +1,476 @@
+{
+ "kind": "discovery#rpcDescription",
+ "etag": "\"oZqOFf-aKzMvpID-BwBAFJLe7Pk/R8PzXhmfa1WaC0PQGgBqj7H0WGU\"",
+ "discoveryVersion": "v1",
+ "id": "bookingendpoint:v1",
+ "name": "bookingendpoint",
+ "version": "v1",
+ "description": "This is an API",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rpc",
+ "rootUrl": "https://myapp.appspot.com/_ah/api/",
+ "rpcUrl": "https://myapp.appspot.com/_ah/api/rpc",
+ "rpcPath": "/_ah/api/rpc",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "schemas": {
+  "Booking": {
+   "id": "Booking",
+   "type": "object",
+   "properties": {
+    "beds": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "checkinDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "checkoutDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "description": {
+     "type": "string"
+    },
+    "hotelId": {
+     "type": "string",
+     "format": "int64"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "nights": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "smoking": {
+     "type": "boolean"
+    },
+    "total": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "user": {
+     "$ref": "User"
+    }
+   }
+  },
+  "BookingCollection": {
+   "id": "BookingCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Booking"
+     }
+    }
+   }
+  },
+  "CollectionResponse_Hotel": {
+   "id": "CollectionResponse_Hotel",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Hotel"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "Dashboard": {
+   "id": "Dashboard",
+   "type": "object",
+   "properties": {
+    "cityList": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "countryList": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "nbHotels": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "Hotel": {
+   "id": "Hotel",
+   "type": "object",
+   "properties": {
+    "address": {
+     "type": "string"
+    },
+    "city": {
+     "type": "string"
+    },
+    "country": {
+     "type": "string"
+    },
+    "hotelName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "image": {
+     "$ref": "Text"
+    },
+    "numberOfStars": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "price": {
+     "type": "string",
+     "format": "int64"
+    },
+    "state": {
+     "type": "string"
+    },
+    "zip": {
+     "type": "string"
+    }
+   }
+  },
+  "HotelCollection": {
+   "id": "HotelCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Hotel"
+     }
+    }
+   }
+  },
+  "Text": {
+   "id": "Text",
+   "type": "object",
+   "properties": {
+    "value": {
+     "type": "string"
+    }
+   }
+  },
+  "User": {
+   "id": "User",
+   "type": "object",
+   "properties": {
+    "authDomain": {
+     "type": "string"
+    },
+    "email": {
+     "type": "string"
+    },
+    "federatedIdentity": {
+     "type": "string"
+    },
+    "nickname": {
+     "type": "string"
+    },
+    "userId": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "methods": {
+  "bookingendpoint.dashboard": {
+   "id": "bookingendpoint.dashboard",
+   "allowGet": true,
+   "returns": {
+    "$ref": "Dashboard"
+   }
+  },
+  "bookingendpoint.hotels.bookings.delete": {
+   "id": "bookingendpoint.hotels.bookings.delete",
+   "parameters": {
+    "bookingId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "hotelId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "hotelId",
+    "bookingId"
+   ],
+   "returns": {
+    "$ref": "Booking"
+   }
+  },
+  "bookingendpoint.hotels.bookings.get": {
+   "id": "bookingendpoint.hotels.bookings.get",
+   "allowGet": true,
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "Booking"
+   }
+  },
+  "bookingendpoint.hotels.bookings.insert": {
+   "id": "bookingendpoint.hotels.bookings.insert",
+   "parameters": {
+    "hotelId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "resource": {
+     "$ref": "Booking"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "hotelId"
+   ],
+   "returns": {
+    "$ref": "Booking"
+   }
+  },
+  "bookingendpoint.hotels.bookings.list": {
+   "id": "bookingendpoint.hotels.bookings.list",
+   "allowGet": true,
+   "parameters": {
+    "hotelId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "hotelId"
+   ],
+   "returns": {
+    "$ref": "BookingCollection"
+   }
+  },
+  "bookingendpoint.hotels.bookings.listByUser": {
+   "id": "bookingendpoint.hotels.bookings.listByUser",
+   "allowGet": true,
+   "returns": {
+    "$ref": "BookingCollection"
+   }
+  },
+  "bookingendpoint.hotels.bookings.patch": {
+   "id": "bookingendpoint.hotels.bookings.patch",
+   "supportsPatch": true,
+   "parameters": {
+    "hotelId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "hotelId",
+    "id"
+   ]
+  },
+  "bookingendpoint.hotels.bookings.update": {
+   "id": "bookingendpoint.hotels.bookings.update",
+   "parameters": {
+    "hotelId": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    },
+    "resource": {
+     "$ref": "Booking"
+    }
+   },
+   "parameterOrder": [
+    "resource",
+    "hotelId"
+   ],
+   "returns": {
+    "$ref": "Booking"
+   }
+  },
+  "bookingendpoint.hotels.delete": {
+   "id": "bookingendpoint.hotels.delete",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "Hotel"
+   }
+  },
+  "bookingendpoint.hotels.get": {
+   "id": "bookingendpoint.hotels.get",
+   "allowGet": true,
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "Hotel"
+   }
+  },
+  "bookingendpoint.hotels.insert": {
+   "id": "bookingendpoint.hotels.insert",
+   "parameters": {
+    "resource": {
+     "$ref": "Hotel"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "Hotel"
+   }
+  },
+  "bookingendpoint.hotels.list": {
+   "id": "bookingendpoint.hotels.list",
+   "allowGet": true,
+   "parameters": {
+    "cursor": {
+     "type": "string"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32"
+    }
+   },
+   "returns": {
+    "$ref": "CollectionResponse_Hotel"
+   }
+  },
+  "bookingendpoint.hotels.patch": {
+   "id": "bookingendpoint.hotels.patch",
+   "supportsPatch": true,
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ]
+  },
+  "bookingendpoint.hotels.search": {
+   "id": "bookingendpoint.hotels.search",
+   "allowGet": true,
+   "parameters": {
+    "term": {
+     "type": "string",
+     "required": true
+    }
+   },
+   "parameterOrder": [
+    "term"
+   ],
+   "returns": {
+    "$ref": "HotelCollection"
+   }
+  },
+  "bookingendpoint.hotels.update": {
+   "id": "bookingendpoint.hotels.update",
+   "parameters": {
+    "resource": {
+     "$ref": "Hotel"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "Hotel"
+   }
+  }
+ }
+}

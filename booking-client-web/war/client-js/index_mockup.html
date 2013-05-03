@@ -1,0 +1,275 @@
+<html>
+<!--[if lt IE 7 ]> <html lang="fr" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="fr" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="fr" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="fr" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="fr" class="no-js">
+<!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Cloud Booking - Google Cloud Endpoints</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="./assets/css/bootstrap.css" type="text/css"
+	media="screen, projection" />
+<!-- Main CSS -->
+<link rel="stylesheet" href="./assets/css/main.css" type="text/css"
+	media="screen, projection" />
+<!-- jQuery -->
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="lib/underscore-min.js"></script>
+<script src="lib/backbone-min.js"></script>
+<!-- Bootstrap JS -->
+<script src="./assets/js/bootstrap.js"></script>
+<link rel="shortcut icon" href="./favicon.ico">
+<style>
+body {
+	border-top: 5px solid #E62F16;
+}
+
+.step {
+	background-color: #E62F16;
+}
+
+.feature {
+	margin-top: 10px;
+	height: 260px;
+}
+
+.recherche {
+	background-color: #F8F8F8;
+	border-color: black;
+	color: black;
+}
+
+#front {
+	background-color: #e5e5e5;
+	border-bottom: 1px solid #E62F16;
+}
+
+.makesense {
+	height: 70px;
+	padding: 0;
+}
+</style>
+</head>
+<body>
+	<div id="top">
+		<div class="container">
+			<div id="navbar" class="navbar navbar-static">
+				<div class="navbar-transparent">
+					<div class="container">
+						<a class="brand" href="#"><img
+							src="assets/img/cloud_booking_logo.png" width="110" alt="power5"></a>
+						<ul class="nav">
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Accueil <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Ajouter un hôtel</a></li>
+								</ul></li>
+							<li><a href="#" onclick="logout();"><i class="icon-lock"></i>Se
+									déconnecter</a></li>
+						</ul>
+
+						<form
+							class="navbar-search border-dashed box-padding step-container"
+							style="margin-left: 60px; width: 300px;">
+							<span class="step">1</span>
+							<div class="controls-in">
+								<input type="text" class="recherche" id="term" name="term"
+									placeholder="Votre destination (villes, pays...)">
+							</div>
+						</form>
+						<ul class="nav pull-right">
+							<li id="fat-menu" class="dropdown"><a href="#"
+								class="dropdown-toggle" data-toggle="dropdown">A Propos<b
+									class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#"><i class="icon-user"></i>Slides
+											DevFest Nantes 2012</a></li>
+									<li><a href="#"><i class="icon-inbox"></i>Github -
+											Cloud Booking App</a></li>
+									<li class="divider"></li>
+									<li>
+									<li><a href="#"><i class="icon-user"></i>Maxime Gréau
+									</a></li>
+								</ul></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/#top-->
+	<div id="front">
+		<div class="container"
+			style="background-color: #e5e5e5; height: 75px;">
+			<div class="row">
+				<div class="span9">
+					<div class="makesense center">
+						<h5>Voyagez à travers le monde avec Cloud Booking !</h5>
+						<span class="label label-warning">FRANCE</span> <span
+							class="label label-warning">FRANCE</span> <span
+							class="label label-warning">FRANCE</span> <span
+							class="label label-warning">USA</span><br /> <span
+							class="label label-info">NANTES</span> <span
+							class="label label-info">LOS ANGELES</span>
+					</div>
+				</div>
+				<div class="span3">
+					<h2>340 Hôtels</h2>
+					<h2>120 Destinations</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/#front-->
+	<div id="main">
+		<div class="container">
+			<div class="row">
+				<div class="span8">
+					<div id="search-content">
+						<!--  add Search View here -->
+						<!-- Button to trigger modal -->
+						<a href="#myModal" role="button" class="btn" data-toggle="modal">Réservez</a>
+
+						<!-- Modal -->
+						<div id="myModal" class="modal hide fade" tabindex="-1"
+							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">×</button>
+								<h3 id="myModalLabel">Modal header</h3>
+							</div>
+							<div class="modal-body">
+								<p>One fine body…</p>
+							</div>
+							<div class="modal-footer">
+								<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+								<button class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+					<div class="space"></div>
+
+					<!-- Zone de message pour le JS -->
+					<div class="row status-bar">
+						<div class="span8">
+							<div id="status" class="alert alert-success"
+								style="display: none"></div>
+						</div>
+					</div>
+
+					<!-- JS se base sur id content pour inclure HTML -->
+					<div id="content" class="row">
+						<div class="span4"><img src="../img/hotel.jpg"></div>
+						<div class="span4"><h3>Hôtel de la Gare</h3>
+						<address>
+							10 boulevard Gaston Doumergue<br/>
+							44000 NANTES<br/>
+							FRANCE
+						</address>
+						<i class="icon-star"></i> <i class="icon-star"></i> <i class="icon-star"></i> <br/>
+						39 Euros
+						</div>
+					</div>
+					<!--/.row-->
+				</div>
+				<div class="span4">
+					<div id="user" class="border-solid box-padding step-container">
+						<span class="step">2</span>
+						<h3>Réservez votre hôtel</h3>
+						<p class="help-block">Connectez-vous pour voir vos
+							réservations !</p>
+						<div class="form-actions-in">
+							<button id="authorize-button" type="submit"
+								class="btn btn-large btn-danger">Se Connecter</button>
+						</div>
+						<h3>Vos réservations</h3>
+						<ul class="media-list">
+							<li class="media"><a class="pull-left" href="#"> <img
+									class="media-object" width="96px"
+									src="http://www.hotel.info/media/hotel/pictures/126/126149/126149_314642_634853154483495908_tn.jpg">
+							</a>
+								<div class="media-body">
+									<h4 class="media-heading">Sofitel - Nantes</h4>
+									<p>2 chambres du 18/11/2012 au 23/11/2012</p>
+								</div></li>
+							<li class="media"><a class="pull-right" href="#"> <img
+									class="media-object"
+									src="http://www.hotel.info/media/hotel/pictures/126/126149/126149_314642_634853154483495908_tn.jpg">
+							</a>
+								<div class="media-body">
+									<h4 class="media-heading">Media heading</h4>
+									Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+									scelerisque ante sollicitudin commodo. Cras purus odio,
+									vestibulum in vulputate at, tempus viverra turpis.
+								</div></li>
+						</ul>
+					</div>
+					<div id="content-hotel" class="alert alert-block"
+						style="margin-top: 20px;">
+						<h4 class="alert-heading">Détail de l'Hôtel</h4>
+						<div class="space"></div>
+						<p>Pour voir le descriptif complet de l'hôtel, cliquez sur
+							Réserver</p>
+					</div>
+				</div>
+			</div>
+			<!--/.row-->
+			<div class="space"></div>
+			<div class="hr"></div>
+			<div class="space"></div>
+
+		</div>
+	</div>
+	<!--/#main-->
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<p>
+					<a href="#">About</a>|<a href="#">Privacy policy</a>|<a href="#">Terms
+						of use</a>|<a href="#">Contact Us</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<!--/#footer-->
+	<!-- scripts -->
+	<script>
+		
+	</script>
+	<!-- Chargement du client google -->
+	<script src="js/auth.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=loadGapi"></script>
+	<script src="js/sync.js"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/models/models.js"></script>
+	<script src="js/views/paginator.js"></script>
+	<script src="js/views/header.js"></script>
+	<script src="js/views/search.js"></script>
+	<script src="js/views/hotellist.js"></script>
+	<script src="js/views/hoteldetails.js"></script>
+	<script src="js/views/about.js"></script>
+	<script src="js/main.js"></script>
+
+	<!-- web intent 
+    <script src="//webintents.org/webintents.min.js"></script>
+    <script src="//webintents.org/webintents-prefix.js"></script>-->
+
+	<!-- analytics -->
+	<script>
+		(function() {
+			var po = document.createElement('script');
+			po.type = 'text/javascript';
+			po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</body>
+</html>

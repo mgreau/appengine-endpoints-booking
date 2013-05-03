@@ -1,0 +1,506 @@
+{
+  "extends" : "thirdParty.api",
+  "root" : "https://cloud-booking.appspot.com/_ah/api",
+  "name" : "bookingendpoint",
+  "version" : "v1",
+  "adapter" : {
+    "bns" : "http://cloud-booking.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+  },
+  "frontendLimits" : {
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+  },
+  "methods" : {
+    "bookingendpoint.hotels.bookings.delete" : {
+      "path" : "hotels/{hotelId}/bookings/{bookingId}",
+      "httpMethod" : "DELETE",
+      "rosyMethod" : "BookingEndpoint.removeBooking",
+      "request" : {
+        "parameters" : {
+          "hotelId" : {
+            "required" : true,
+            "type" : "int64"
+          },
+          "bookingId" : {
+            "required" : true,
+            "type" : "int64"
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.hotels.bookings.get" : {
+      "path" : "hotels/bookings/{id}",
+      "httpMethod" : "GET",
+      "rosyMethod" : "BookingEndpoint.getBooking",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "required" : true,
+            "type" : "int64"
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.hotels.bookings.list" : {
+      "path" : "hotels/{hotelId}/bookings",
+      "httpMethod" : "GET",
+      "rosyMethod" : "BookingEndpoint.listBooking",
+      "request" : {
+        "parameters" : {
+          "hotelId" : {
+            "required" : true,
+            "type" : "int64"
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.hotels.bookings.insert" : {
+      "path" : "hotels/{hotelId}/bookings",
+      "httpMethod" : "POST",
+      "rosyMethod" : "BookingEndpoint.insertBooking",
+      "request" : {
+        "parameters" : {
+          "hotelId" : {
+            "required" : true,
+            "type" : "int64"
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.hotels.bookings.listByUser" : {
+      "path" : "hotels/bookings/user",
+      "httpMethod" : "GET",
+      "rosyMethod" : "BookingEndpoint.listBookingByUser",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.hotels.bookings.update" : {
+      "path" : "hotels/{hotelId}/bookings",
+      "httpMethod" : "PUT",
+      "rosyMethod" : "BookingEndpoint.updateBooking",
+      "request" : {
+        "parameters" : {
+          "hotelId" : {
+            "required" : true,
+            "type" : "int64"
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.hotels.get" : {
+      "path" : "hotel/{id}",
+      "httpMethod" : "GET",
+      "rosyMethod" : "HotelEndpoint.getHotel",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "required" : true,
+            "type" : "int64"
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.hotels.list" : {
+      "path" : "hotel",
+      "httpMethod" : "GET",
+      "rosyMethod" : "HotelEndpoint.listHotel",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "required" : false,
+            "type" : "string"
+          },
+          "limit" : {
+            "required" : false,
+            "type" : "int32"
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.hotels.delete" : {
+      "path" : "hotel/{id}",
+      "httpMethod" : "DELETE",
+      "rosyMethod" : "HotelEndpoint.removeHotel",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "required" : true,
+            "type" : "int64"
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.hotels.insert" : {
+      "path" : "hotel",
+      "httpMethod" : "POST",
+      "rosyMethod" : "HotelEndpoint.insertHotel",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.hotels.search" : {
+      "path" : "searchHotel/{term}",
+      "httpMethod" : "GET",
+      "rosyMethod" : "HotelEndpoint.searchHotel",
+      "request" : {
+        "parameters" : {
+          "term" : {
+            "required" : true,
+            "type" : "string"
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.hotels.update" : {
+      "path" : "hotel",
+      "httpMethod" : "PUT",
+      "rosyMethod" : "HotelEndpoint.updateHotel",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    },
+    "bookingendpoint.dashboard" : {
+      "path" : "dashboard",
+      "httpMethod" : "GET",
+      "rosyMethod" : "DashboardEndpoint.getDashboard",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      },
+      "audiences" : [ "cloud-booking.appspot.com" ],
+      "clientIds" : [ "961575813955-so0anb7ag4128gi92343k6im3anaksf3.apps.googleusercontent.com" ]
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "User" : {
+        "id" : "User",
+        "type" : "object",
+        "properties" : {
+          "authDomain" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "federatedIdentity" : {
+            "type" : "string"
+          },
+          "nickname" : {
+            "type" : "string"
+          },
+          "userId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Booking" : {
+        "id" : "Booking",
+        "type" : "object",
+        "properties" : {
+          "beds" : {
+            "type" : "integer"
+          },
+          "checkinDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "checkoutDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "hotelId" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "nights" : {
+            "type" : "integer"
+          },
+          "smoking" : {
+            "type" : "boolean"
+          },
+          "total" : {
+            "type" : "integer"
+          },
+          "user" : {
+            "$ref" : "User"
+          }
+        }
+      },
+      "BookingCollection" : {
+        "id" : "BookingCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Booking"
+            }
+          }
+        }
+      },
+      "Hotel" : {
+        "id" : "Hotel",
+        "type" : "object",
+        "properties" : {
+          "address" : {
+            "type" : "string"
+          },
+          "city" : {
+            "type" : "string"
+          },
+          "country" : {
+            "type" : "string"
+          },
+          "hotelName" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "image" : {
+            "$ref" : "Text"
+          },
+          "numberOfStars" : {
+            "type" : "integer"
+          },
+          "price" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "state" : {
+            "type" : "string"
+          },
+          "zip" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Text" : {
+        "id" : "Text",
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_Hotel" : {
+        "id" : "CollectionResponse_Hotel",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Hotel"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "HotelCollection" : {
+        "id" : "HotelCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Hotel"
+            }
+          }
+        }
+      },
+      "Dashboard" : {
+        "id" : "Dashboard",
+        "type" : "object",
+        "properties" : {
+          "cityList" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "countryList" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "nbHotels" : {
+            "type" : "integer"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "BookingEndpoint.removeBooking" : {
+        "response" : {
+          "$ref" : "Booking"
+        }
+      },
+      "BookingEndpoint.getBooking" : {
+        "response" : {
+          "$ref" : "Booking"
+        }
+      },
+      "BookingEndpoint.listBooking" : {
+        "response" : {
+          "$ref" : "BookingCollection"
+        }
+      },
+      "BookingEndpoint.insertBooking" : {
+        "request" : {
+          "$ref" : "Booking"
+        },
+        "response" : {
+          "$ref" : "Booking"
+        }
+      },
+      "BookingEndpoint.listBookingByUser" : {
+        "response" : {
+          "$ref" : "BookingCollection"
+        }
+      },
+      "BookingEndpoint.updateBooking" : {
+        "request" : {
+          "$ref" : "Booking"
+        },
+        "response" : {
+          "$ref" : "Booking"
+        }
+      },
+      "HotelEndpoint.getHotel" : {
+        "response" : {
+          "$ref" : "Hotel"
+        }
+      },
+      "HotelEndpoint.listHotel" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Hotel"
+        }
+      },
+      "HotelEndpoint.removeHotel" : {
+        "response" : {
+          "$ref" : "Hotel"
+        }
+      },
+      "HotelEndpoint.insertHotel" : {
+        "request" : {
+          "$ref" : "Hotel"
+        },
+        "response" : {
+          "$ref" : "Hotel"
+        }
+      },
+      "HotelEndpoint.searchHotel" : {
+        "response" : {
+          "$ref" : "HotelCollection"
+        }
+      },
+      "HotelEndpoint.updateHotel" : {
+        "request" : {
+          "$ref" : "Hotel"
+        },
+        "response" : {
+          "$ref" : "Hotel"
+        }
+      },
+      "DashboardEndpoint.getDashboard" : {
+        "response" : {
+          "$ref" : "Dashboard"
+        }
+      }
+    }
+  }
+}

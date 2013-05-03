@@ -1,0 +1,20 @@
+<div id="front">
+	<div class="container" style="background-color: #e5e5e5; height: 85px;">
+		<div class="row">
+			<div class="span9">
+				<div class="makesense center">
+					<h5>Voyagez à travers le monde avec Cloud Booking !</h5>
+					<% _.each(countryList, function(country) { %> <a
+						href="/client-js/#hotels/search/<%= country %>"
+						title="Les hôtels de <%= country %>"><span
+						class="label label-warning"><%= country %></span></a> <% }); %><br />
+				</div>
+			</div>
+			<div class="span3">
+				<p class="lead"><i class="icon-home"></i> <%= nbHotels %> Hôtels<br/>
+				<i class="icon-road"></i> <%= cityList.length %> Destinations</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!--/#front-->

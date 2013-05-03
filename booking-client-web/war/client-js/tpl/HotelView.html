@@ -1,0 +1,93 @@
+<div class="row">
+  <form class="form-horizontal span8">
+
+      <div class="row">
+        <div class="span8">
+
+          <div class="control-group">
+            <label for="hotelId" class="control-label">Id:</label>
+
+            <div class="controls">
+              <input id="hotelId" name="id" type="text" value="<%= id === null ? '' : id %>" class="span1"
+                     disabled/>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="hotelName" class="control-label">Hotel Name:</label>
+
+            <div class="controls">
+              <input type="text" id="hotelName" name="hotelName" value="<%= hotelName %>"/>
+              <span class="help-inline"></span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="grapes" class="control-label">Stars:</label>
+
+            <div class="controls">
+              <input type="text" id="grapes" name="numberOfStars" value="<%= numberOfStars %>"/>
+              <span class="help-inline"></span>
+            </div>
+          </div>
+          
+
+          <div class="control-group">
+            <label for="country" class="control-label">Pays:</label>
+
+            <div class="controls">
+              <input type="text" id="country" name="country" value="<%= country %>"/>
+              <span class="help-inline"></span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="region" class="control-label">Etat:</label>
+
+            <div class="controls">
+              <input type="text" id="region" name="state" value="<%= state %>"/>
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label for="country" class="control-label">Ville :</label>
+
+            <div class="controls">
+              <input type="text" id=""city"" name="city" value="<%= city%>"/>
+              <span class="help-inline"></span>
+            </div>
+          </div>
+          
+          
+          <div class="control-group">
+            <label for="description" class="control-label">Adresse:</label>
+
+            <div class="controls">
+              <textarea id="description" name="address" class="span6" rows="6"><%= address %></textarea>
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label for="country" class="control-label">Prix :</label>
+
+            <div class="controls">
+              <input type="text" id="price" name="price" value="<%= price %>"/>
+              <span class="help-inline"></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    <div class="form-actions">
+      <a href="#" class="btn btn-primary save">Save</a>
+      <a href="#" class="btn delete">Delete</a>
+    </div>
+
+  </form>
+
+</div>
+
+
+

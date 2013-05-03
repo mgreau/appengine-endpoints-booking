@@ -1,0 +1,15 @@
+<div class="hr"></div>
+<li>
+Réservation du <span class="badge badge-info"><%= checkinDate %></span> au <span
+				class="badge badge-info"><%= checkoutDate %></span>
+		<p>Chambre : <%= beds %> / 
+			Fumeur : <%= ((smoking == true)?'<i class="icon-ok-sign"/>':'<i class="icon-ban-circle"/>') %>
+			</p>
+	<a href="#hotels/bookings/cancel" class="remove btn" >Annuler</a>
+	<a href="#hotels/bookings/details" class="details btn" >Détails</a>
+	<div id="booking-hotel<%= hotelId %>">
+	
+	</div>
+	
+</li>
+<hr/>

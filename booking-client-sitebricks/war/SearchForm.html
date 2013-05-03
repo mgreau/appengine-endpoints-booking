@@ -1,0 +1,33 @@
+<html>
+<head></head>
+<body>
+
+	<div class="row-fluid"
+		style="padding: 20px; margin-bottom: 10px; background-color: #EEE; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px;">
+		<div class="span2">
+			<img src="/img/gae_logo.png" />
+		</div>
+		<div class="span10">
+			<form class="form-search form-inline" method="get" action="/search">
+				<input style="width: 350px" type="text"
+					placeholder="Saisir une ville, un pays..." name="term"
+					class="search-query" value="${term}">
+				<button type="submit" class="btn btn-danger">Rechercher un
+					Hotel</button>
+			</form>
+				<ul class="help-block">
+					<li>Un large choix avec <span class="label label-info">${nbHotels}
+							hotels</span></li>
+					<li>Dans les plus beaux pays du monde : <span
+						class="label label-success">FRANCE</span> <span
+						class="label label-success">USA</span></li>
+					<li>Et les villes <span class="label label-info">NANTES</span></li>
+				</ul>
+				@ShowIf(nbResults != null && nbResults > 0)
+				<div class="alert"><strong>${nbResults} hotels trouves</strong></div>
+				@ShowIf(nbResults != null && nbResults == 0)
+				<div class="alert alert-error"><strong>Aucun hotel ne correspond a vos criteres.</strong></div>
+		</div>
+	</div>
+</body>
+</html>

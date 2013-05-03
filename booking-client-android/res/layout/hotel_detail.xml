@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10px">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    xmlns:tools="http://schemas.android.com/tools"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    xmlns:tools="http://schemas.android.com/tools"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical">
+		    <TextView
+		        android:id="@+id/hotelLabel"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="left"
+		        android:textStyle="bold" />
+		
+		    <TextView
+		        android:id="@+id/hotelAddress"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="left" />
+		
+		    <TextView
+		        android:id="@+id/hotelCity"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="left" />
+		</LinearLayout>
+		
+	    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    xmlns:tools="http://schemas.android.com/tools"
+		    android:id="@+id/hotelStars"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:layout_alignParentRight="true"
+		    android:gravity="right"
+		    android:padding="10px">
+		    
+		</LinearLayout>	    
+	    
+	</RelativeLayout>
+    
+    <ImageView
+        android:id="@+id/imageHotelDetail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15px"/>
+    
+</LinearLayout>

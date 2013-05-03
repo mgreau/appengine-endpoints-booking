@@ -1,0 +1,10 @@
+<html>
+<head></head>
+<body>
+<h2>Vos RŽservations</h2>
+<ul>
+    @Repeat(items=bookings, var="booking")
+    <li>${booking.checkinDate} ${booking.checkoutDate} ${booking.beds} ${booking.user.email}</li>
+ </ul>
+ </body>
+ </html>

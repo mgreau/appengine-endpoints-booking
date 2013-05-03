@@ -1,0 +1,37 @@
+<div class="span8">
+	<form class="form-inline">
+		<div class="well">
+			<div class="input-append date" id="date1" data-date="2012-11-09"
+				>
+				<input class="span2" size="16" id="checkinDate" type="text" value="2012-11-09"
+					readonly=""> <span class="add-on"><i
+					class="icon-calendar"></i></span>
+			</div>
+			<div class="input-append date" id="date2" data-date="2012-11-12">
+				<input class="span2" size="16" id="checkoutDate" type="text" value="2012-11-12"
+					readonly=""> <span class="add-on"><i
+					class="icon-calendar"></i></span>
+			</div>
+			<div>
+				 Chambres : <input type="text" id="room" class="input-small"
+				value="1">
+				 <label class="checkbox">
+				<input type="checkbox" id="smoking" checked="checked"> Fumeur
+			</label>
+			</div>
+			<a href="#" id="book" class="btn btn-inverse">Réserver</a>
+		</div>
+	</form>
+</div>
+<div class="span4">
+	<img src="<%= image.value %>"
+		class="img-polaroid" width="280px">
+</div>
+<div class="span4">
+	<%= hotelName %>
+	<address>
+		<%= address %> <%= city %> <br /> <% _.each(stars, function(i)
+		{ %> <i class="icon-star"></i> <% }); %> <br /> <%=
+		state %> <br /> <%= country %><br />
+	</address>
+</div>

@@ -1,0 +1,61 @@
+<html>
+<head></head>
+<body>
+<ul class="pager">
+	@ShowIf(lastCursor != null)
+  	<li><a href="cursor=${lastCursor}">Précédent</a></li>
+  	@ShowIf(nextCursor != null)
+  <li><a href="?cursor=${nextCursor}">Suivant</a></li>
+</ul>
+
+<div class="row-fluid">
+       <ul class="thumbnails">
+         @Repeat(items=hotels, var="h")
+         <li class="span2">
+           <div class="thumbnail">
+              <img src="data:image/jpg;base64,${h.image.value}" class="img-polaroid" width="140px">
+             <div class="caption">
+               <h5>${h.hotelName}</h5><span class="badge badge-important">${h.country} </span><p><strong>${h.price} Euros</strong>  @ShowIf(h.numberOfStars == 1)
+        <span>
+        <i class="icon-star"></i>
+        </span>
+        
+        @ShowIf(h.numberOfStars == 2)
+        <span>
+        <i class="icon-star"></i><i class="icon-star"></i>
+        </span>
+        
+        @ShowIf(h.numberOfStars == 3)
+        <span>
+        <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+        </span>
+        
+        @ShowIf(h.numberOfStars == 4)
+        <span>
+        <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+        </span>
+        
+        @ShowIf(h.numberOfStars == 5)
+        <span>
+        <i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
+        </span></p>
+                <address>${h.address} ${h.city} 
+ 
+ @ShowIf(h.zip != null)
+ <span> ${h.zip}</span>
+
+  @ShowIf(h.state != "Nationwide")
+ <span>, ${h.state}</span>
+ 
+ </address>
+               <p><a href="#" class="btn btn-success">Reservez</a></p>
+             </div>
+           </div>
+         </li>
+       </ul>
+</div>          
+
+
+ </body>
+ </html>
+  
